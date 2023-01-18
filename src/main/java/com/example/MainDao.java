@@ -9,11 +9,12 @@ public class MainDao {
         // userDao.create(user);
         // User user2 = userDao.read(1);
         // System.out.println(user2.getPassword());
-        // User user3 = new User("Kasztanek@gmail.com", "Kasztanowy50", "Kasztanki5555");
+        // User user3 = new User("Kasztanek@gmail.com", "Kasztanowy50","Kasztanki5555");
         // userDao.update(user3, 1);
         // userDao.delete(5);
-        for (User user : userDao.findAll()){
-            System.out.println(user.getId() + " " +  user.getEmail() + " " + user.getUsername() + " " + user.getPassword());
+        for (User user : userDao.findAll()) {
+            System.out.println(
+                    user.getId() + " " + user.getEmail() + " " + user.getUsername() + " " + user.getPassword());
         }
     }
 }

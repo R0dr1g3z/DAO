@@ -54,19 +54,21 @@ public class UserDao {
             preparedStatement.executeUpdate();
         }
     }
-    public void delete(int userId) throws SQLException{
-        try(Connection connection = DbUtil.connect("DAO")){
+
+    public void delete(int userId) throws SQLException {
+        try (Connection connection = DbUtil.connect("DAO")) {
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_USER_QUERY);
             preparedStatement.setInt(1, userId);
             preparedStatement.executeUpdate();
         }
     }
-    public List<User> findAll() throws SQLException{
+
+    public List<User> findAll() throws SQLException {
         List<User> users = new ArrayList<>();
-        try(Connection connection = DbUtil.connect("DAO")){
+        try (Connection connection = DbUtil.connect("DAO")) {
             PreparedStatement preparedStatement = connection.prepareStatement(FINDALL_USER_QUERY);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 int id = resultSet.getInt(1);
                 String email = resultSet.getString(2);
                 String username = resultSet.getString(3);
